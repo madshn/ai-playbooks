@@ -6,7 +6,7 @@ Reusable skills, prompts, and patterns for running AI agents in production — s
 
 ## About
 
-Hi, I'm **Mads Nissen** — a builder in Oslo running [Right Aim](https://rightaim.ai), where I operate an **Entourage** of always-on AI associates alongside my own work: executive assistance, engineering, operations, growth, and revenue.
+Hi, I'm **Mads Nissen** — a builder in Oslo running [Right Aim](https://rightaim.ai), where I operate a team of always-on AI associates alongside my own work: executive assistance, engineering, operations, growth, and revenue.
 
 This repo is where I publish the playbooks that keep that team running: reusable skills, prompts, and patterns I've battle-tested day-to-day. Cross-harness where it matters (Claude Code, Codex, and others), concept-first, no framework lock-in.
 
