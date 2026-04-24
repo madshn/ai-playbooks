@@ -1,6 +1,6 @@
 # 1p-creds
 
-Move a repo's scattered credentials into a per-repo **1Password Environment**, mounted as a FIFO-served `.env.local` that **direnv** auto-loads on shell init. Cut biometric prompts from 10–20 per workday to 1–2, without wrapping the agent CLI.
+Move a repo's scattered credentials into a per-repo **[1Password Environment](https://developer.1password.com/docs/environments/)**, mounted as a FIFO-served `.env.local` that **[direnv](https://direnv.net/)** auto-loads on shell init. Cut biometric prompts from 10–20 per workday to 1–2, without wrapping the agent CLI.
 
 ## The problem
 
@@ -15,7 +15,7 @@ All four have downsides. This playbook picks a different architecture.
 
 ## The solution
 
-**1Password Environments** (currently in beta) provide a destination type called "Local `.env` file" that mounts as a **FIFO** (named pipe). The file looks like a regular file to any reader, but contains no bytes at rest — the 1Password desktop app streams the current variable values into the pipe on demand, and authorization is gated by the **1P desktop unlock state**, not per-shell.
+**[1Password Environments](https://developer.1password.com/docs/environments/)** (currently in beta) provide a destination type called **["Local `.env` file"](https://developer.1password.com/docs/environments/local-env-file/)** that mounts as a **FIFO** (named pipe). The file looks like a regular file to any reader, but contains no bytes at rest — the 1Password desktop app streams the current variable values into the pipe on demand, and authorization is gated by the **1P desktop unlock state**, not per-shell.
 
 Paired with **direnv**, which auto-sources `.env.local` on shell init (no `cd` needed — works in VS Code integrated terminals), the result is:
 
@@ -76,11 +76,21 @@ The setup flow's Phase 0 wizard verifies all of these automatically — if anyth
 
 ## References
 
-- [1Password Environments docs](https://developer.1password.com/docs/environments/)
-- [Local `.env` file destination](https://developer.1password.com/docs/environments/local-env-file/)
-- [1Password CLI](https://developer.1password.com/docs/cli/)
-- [direnv](https://direnv.net/)
-- [`man fifo`](https://linux.die.net/man/7/fifo)
+### 1Password
+
+- **[1Password Environments](https://developer.1password.com/docs/environments/)** — the feature this skill is built on (currently in beta)
+- **[Local `.env` file destination](https://developer.1password.com/docs/environments/local-env-file/)** — the FIFO mount architecture that makes the whole thing work
+- **[Programmatically read Environments](https://developer.1password.com/docs/environments/read-environment-variables/)** — `op environment read` + SDK access for headless contexts (hosted workers, CI)
+- **[1Password CLI (`op`)](https://developer.1password.com/docs/cli/)** — install + general usage
+- **[1P CLI desktop-app integration](https://developer.1password.com/docs/cli/app-integration-security/)** — how the biometric-gated trust model works
+- **[1Password Agent Hooks](https://developer.1password.com/docs/agent-hooks)** — optional validation layer that can verify the `.env.local` mount before an agent tool runs (Claude Code, Cursor, etc.)
+- **[1Password SSH Agent](https://developer.1password.com/docs/ssh/)** — the right home for SSH private keys, which this skill explicitly does **not** migrate (see `claude/references/migrate.md` § DO-NOT-MIGRATE patterns)
+- **[1Password desktop app downloads](https://1password.com/downloads/)** — prerequisite
+
+### Other tools
+
+- **[direnv](https://direnv.net/)** — the per-directory env auto-loader this skill composes with
+- **[`man fifo`](https://linux.die.net/man/7/fifo)** — Unix named pipes, the architectural primitive 1P Environments use under the hood
 
 ## License
 

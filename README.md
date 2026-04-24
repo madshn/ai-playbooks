@@ -23,7 +23,7 @@ Items appear here as they're published. Each entry links to its own folder with 
 
 | Skill | What it does | Harnesses |
 |---|---|---|
-| [`1p-creds`](./skills/1p-creds/) | Move scattered repo credentials into a per-repo 1Password Environment, mounted as a FIFO-served `.env.local` auto-loaded by direnv. Cut biometric prompts from 10-20/day to 1-2/day — without wrapping the agent CLI. | [`claude`](./skills/1p-creds/claude/) |
+| [`1p-creds`](./skills/1p-creds/) | Move scattered repo credentials into a per-repo [1Password Environment](https://developer.1password.com/docs/environments/), mounted as a FIFO-served `.env.local` auto-loaded by [direnv](https://direnv.net/). Cut biometric prompts from 10-20/day to 1-2/day — without wrapping the agent CLI. | [`claude`](./skills/1p-creds/claude/) |
 
 <!-- INDEX:END -->
 
