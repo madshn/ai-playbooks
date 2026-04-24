@@ -49,8 +49,9 @@ Other actions: `migrate` (re-scan for new scatter), `rotate VAR_NAME` (AI+web-se
 | Harness | Status | Folder |
 |---|---|---|
 | **Claude Code** | ✅ Implemented | [`claude/`](./claude/) |
-| Codex | Planned | [`codex/`](./codex/) (stub) |
-| Gemini CLI | Future | — |
+| Codex, Gemini CLI, others | Not yet ported | — |
+
+Ports welcome as PRs. The underlying architecture (FIFO mount + direnv + manifest) is harness-agnostic; only the invocation mechanism differs. See `claude/SKILL.md` as the reference implementation.
 
 ## Security notes
 

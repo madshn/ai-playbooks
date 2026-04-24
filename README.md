@@ -21,7 +21,9 @@ Items appear here as they're published. Each entry links to its own folder with 
 
 <!-- INDEX:START -->
 
-_Nothing published yet — first entries landing soon._
+| Skill | What it does | Harnesses |
+|---|---|---|
+| [`1p-creds`](./skills/1p-creds/) | Move scattered repo credentials into a per-repo 1Password Environment, mounted as a FIFO-served `.env.local` auto-loaded by direnv. Cut biometric prompts from 10-20/day to 1-2/day — without wrapping the agent CLI. | [`claude`](./skills/1p-creds/claude/) |
 
 <!-- INDEX:END -->
 
